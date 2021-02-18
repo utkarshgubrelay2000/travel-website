@@ -12,9 +12,9 @@ exports.getAllTour=(req,res)=>{
 }
 
 exports.getTourBytourId=(req,res)=>{
-   const {tourId}=req.query
+   const {id}=req.params
 
-    adModel.findOne({tourId:tourId}).populate('categoryId').then(foundCourse=>{
+    adModel.findOne({_id:id}).populate('categoryId').then(foundCourse=>{
         if(foundCourse){
             res.json(foundCourse)
         }else{
