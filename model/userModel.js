@@ -27,19 +27,9 @@ const StudentSchema = new mongoose.Schema({
   expireToken: {
     type: Date,
   },
-myCart:[
-  {
-    _id:false,
-    date:{type:Date},
-    courseId:{type:mongoose.Schema.Types.ObjectId ,ref:'Course'}
-  }
-]
+
 
 });
 
 const Student = mongoose.model("User", StudentSchema);
 module.exports = Student;
-
-
-
-
