@@ -1,32 +1,25 @@
-const Course = require("../model/courseModel")
+const adModel = require("../model/adModel")
 
 exports.addNewCourse=(req,res)=>{
-const {courseName,courseDuration, price,thumbnailImage ,description,instructors,categoryId ,topics}=req.body
+const {tourName,tourDuration, price,thumbnailImage ,description,categoryId,images,includes}=req.body
 
-let courseId=courseName.replace(/\s/g,"-")
+let tourId=tourName.replace(/\s/g,"-")
 
-console.log(courseId)
-Course.findOne({courseName:courseName}).then(foundCourse=>{
-    if(foundCourse){
-        res.status(409).json('Already Exist same name Conflict')
-    }
-    else{
+console.log(tourId)
         let courseId=courseName.replace(/\s/g,"-")
-    let newCourse=new Course({
-    courseName:courseName,
+    let newCourse=new adModel({
+    tourName:tourName,
     price :price,
-    courseDuration:courseDuration,
+    tourDuration:tourDuration,
     thumbnailImage:thumbnailImage,
     description:description,
-    instructors:instructors,
+  images:images,includes:includes,
     categoryId:categoryId,
-    topics:topics,
-    courseId:courseId
+    tourId:tourId
 })
-newCourse.save().then(saved=>{
+newadModel.save().then(saved=>{
     res.json("Successfully Created A Course")
-})
-    }
+
 }).catch(err=>{
     res.status(503).json('Something Went Wrong')
 })
@@ -42,7 +35,7 @@ exports.updateCourse=(req,res)=>{
     let courseId=courseName.replace(/\s/g,"-")
     
     console.log(courseId)
-    Course.findByIdAndUpdate(req.params.courseId,{courseName:courseName,
+    adModel.findByIdAndUpdate(req.params.courseId,{courseName:courseName,
         price :price,
         courseDuration:courseDuration,
         thumbnailImage:thumbnailImage,
@@ -63,21 +56,21 @@ exports.updateCourse=(req,res)=>{
     //     res.json(l)
     }
     exports.getAllCourses=(req,res)=>{
-        Course.find({}).populate('categoryId').sort({_id:-1}).then(Courses=>{
+        adModel.find({}).populate('categoryId').sort({_id:-1}).then(Courses=>{
             res.json(Courses)
         }).catch(err=>{
             res.status(503).json('Something Went Wrong')
         })
     }
     exports.getCourseById=(req,res)=>{
-        Course.findById(req.params.courseId).populate('categoryId').then(Courses=>{
+        adModel.findById(req.params.courseId).populate('categoryId').then(Courses=>{
             res.json(Courses)
         }).catch(err=>{
             res.status(503).json('Something Went Wrong')
         })
     }
     exports.deleteCourse=(req,res)=>{
-        Course.findByIdAndDelete(req.params.courseId).populate('categoryId').then(Courses=>{
+        adModel.findByIdAndDelete(req.params.courseId).populate('categoryId').then(Courses=>{
             res.json("Delete Course")
         }).catch(err=>{
             res.status(503).json('Something Went Wrong')
