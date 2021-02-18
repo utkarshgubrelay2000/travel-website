@@ -38,7 +38,7 @@ app.use(express.json())
 ///Router
 /// Server check
 app.get('/', function(req, res, next) {
-  res.send('Welcome to Udemy');
+  res.send('Welcome to Traveller');
 });
 // Auth Routers
 app.use('/',authRouter)

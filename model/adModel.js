@@ -12,5 +12,5 @@ const Schema= new mongoose.Schema({
              
     })
 
-const Course = mongoose.model( "Course" , Schema);
+const Course = mongoose.model( "Ad" , Schema);
 module.exports = Course;

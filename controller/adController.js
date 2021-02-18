@@ -1,14 +1,11 @@
 const adModel = require("../model/adModel")
 
 exports.addNewAd=(req,res)=>{
-const {tourName,tourDuration, price,thumbnailImage ,description,categoryId,images,includes,videos}=req.body
+const {tourPlace,tourDuration, price,thumbnailImage ,description,categoryId,images,includes,videos}=req.body
 
-let tourId=tourName.replace(/\s/g,"-")
-
-//console.log(tourId)
-       // let tourId=courseName.replace(/\s/g,"-")
+let tourId=tourPlace.replace(/\s/g,"-")
     let newadModel=new adModel({
-    tourName:tourName,
+    tourPlace:tourPlace,
     price :price,
     tourDuration:tourDuration,
     thumbnailImage:thumbnailImage,
@@ -22,7 +19,7 @@ newadModel.save().then(saved=>{
     res.json("Successfully Created Ad")
 
 }).catch(err=>{
-    res.status(503).json('Something Went Wrong')
+    res.status(503).json(err)
 })
 
 
