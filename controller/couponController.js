@@ -1,7 +1,7 @@
 const couponModel=require('../model/couponModel')
 
 exports.createCoupon=(req,res)=>{
-    const {couponCode, discount, maxDiscount}= req.body
+    const {couponCode, discount, maxDiscount,minLength}= req.body
     couponModel.findOne({couponCode:couponCode}).then(foundCoupon=>{
         if(foundCoupon){
             res.status(409).json('ALready exist name conflict')
@@ -11,6 +11,7 @@ exports.createCoupon=(req,res)=>{
                 couponCode:couponCode,
                 discount:discount,
                 maxDiscount:maxDiscount
+                ,minLength:minLength
             })
             newCoupon.save()
             res.json('Created Coupon')
@@ -41,11 +42,11 @@ exports.deleteCoupon=(req,res)=>{
     })
 }
 exports.updateCoupon=(req,res)=>{
-    const {maxDiscount,discount,couponCode}=req.body
+    const {maxDiscount,discount,couponCode,minLength}=req.body
     couponModel.findByIdAndUpdate(req.params.couponId,{
         couponCode:couponCode,
         discount:discount,
-        maxDiscount:maxDiscount
+        maxDiscount:maxDiscount,minLength:minLength
 
     }).then(foundCoupon=>{
         res.json("SuccessFully Updated")

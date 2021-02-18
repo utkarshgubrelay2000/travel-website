@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const CouponSchema = new mongoose.Schema({
-couponCode:{type:String}, discount:{type:Number}, maxDiscount:{type:Number}
+couponCode:{type:String}, discount:{type:Number}, maxDiscount:{type:Number},minLength:{type:Number}
 
 });
 
