@@ -1,6 +1,7 @@
 const category = require("../model/categoryModel")
 exports.postCategory=(req,res)=>{
     const {categoryName}=req.body
+    console.log('hhh')
     category.findOne({categoryName:categoryName}).then(foundCategory=>{
         if(foundCategory){
             res.status(409).json({error:' Category with this name Already Exists '})
