@@ -71,4 +71,72 @@ Open [http://localhost:4500](http://localhost:4500) and take a look around.
    ######  
   ###### Response:{"succes"}
 
-  
+
+
+### Ad Posting
+   ####  add-new-ad->
+   ###### Request type-: Post,
+   ######  Url:url/add-new-ad,
+   ######  Body-include-: { tourPlace,tourDuration, price,thumbnailImage  ,description,categoryId,images,includes,videos  } 
+  ###### Response:{"succes"}
+
+
+####  update-Ad->
+   ###### Request type-: Post,
+   ######  Url:url/update-Ad,
+   ######  params-tourId,
+ ######  Body-include-: { tourPlace,tourDuration, price,thumbnailImage  ,description,categoryId,images,includes,videos  }
+
+
+ ####  delete-Ad->
+   ###### Request type-: Post,
+   ######  Url:url//delete-ad/:tourId,
+   ######  params-tourId,
+ 
+
+### Category Posting
+   ####  postCategory->
+   ###### Request type-: Post,
+   ######  Url:url/postCategory,
+   ######  Body-include-: { categoryName  } 
+  ###### Response:{"succes"}
+
+
+####  updateCategory->
+   ###### Request type-: Post,
+   ######  Url:url/updateCategory,
+   ######  params-categoryId,
+ ######  Body-include-: { categoryName }
+
+
+ ####  deleteCategory->
+   ###### Request type-: Post,
+   ######  Url:url//deleteCategory/:Id,
+   ######  params-categoryId,
+ 
+ 
+
+### Category Coupon
+   ####  create-Coupon->
+   ###### Request type-: Post,
+   ######  Url:url/create-Coupon,
+   ######  Body-include-: {couponCode, discount, maxDiscount,minLength } 
+  ###### Response:{"succes"}
+
+
+####  update-coupon/:couponId->
+   ###### Request type-: Post,
+   ######  Url:url/update-coupon/:couponId,
+   ######  params-couponId,
+ ######  Body-include-: { couponCode, discount, maxDiscount,minLength }
+
+
+ ####  deletecoupon->
+   ###### Request type-: Post,
+   ######  Url:url//delete-coupon/:Id,
+   ######  params-couponId,
+ 
+
+
+ 
+

@@ -1,7 +1,8 @@
 const adModel = require("../model/adModel")
 
 exports.addNewAd=(req,res)=>{
-const {tourPlace,tourDuration, price,thumbnailImage ,description,categoryId,images,includes,videos}=req.body
+const {tourPlace,tourDuration, price,thumbnailImage 
+    ,description,categoryId,images,includes,videos}=req.body
 
 let tourId=tourPlace.replace(/\s/g,"-")
     let newadModel=new adModel({
