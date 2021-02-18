@@ -1,9 +1,9 @@
 const { response } = require("express")
-const Course = require("../model/courseModel")
+const Course = require("../model/adModel")
 const userModel=require('../model/userModel')
 
 exports.addToMyCart=(req,res)=>{
-    console.log(req.body.userId)
+   // console.log(req.body.userId)
     Course.findById(req.body.courseId).then(foundCourse=>{
         if(foundCourse){
 userModel.findById(req.body.userId).then(foundUser=>{
