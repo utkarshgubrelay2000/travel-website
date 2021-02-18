@@ -7,7 +7,7 @@ const Schema= new mongoose.Schema({
          thumbnailImage : {type:String},
          categoryId : {type:mongoose.Schema.Types.ObjectId,ref:'Category'},
          description : {type:String},
-         images:[],
+         images:[],videos:[],
          includes:[]
              
     })
