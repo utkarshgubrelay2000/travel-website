@@ -4,7 +4,7 @@ const coupon=require('../model/couponModel')
 
 
 exports.getAllTour=(req,res)=>{
-    adModel.find({}).sort({_id:-1}).then(tours=>{
+    adModel.find({}).populate('testimonial.user').populate({model:'Category',path:'categoryId'}).sort({_id:-1}).then(tours=>{
         res.json(tours)
     }).catch(err=>{
         res.status(503).json(err)
