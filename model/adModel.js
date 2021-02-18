@@ -10,6 +10,7 @@ const Schema= new mongoose.Schema({
          images:[],videos:[],
          includes:[]
          ,testimonial:[{
+             _id:false,
              content:{type:String},
              user:{type:mongoose.Schema.Types.ObjectId,ref:'User'},
              rating:{type:Number,
