@@ -11,7 +11,7 @@ let tourId=tourPlace.replace(/\s/g,"-")
     thumbnailImage:thumbnailImage,
     description:description,
   images:images,includes:includes,
-    //categoryId:categoryId,
+    categoryId:categoryId,
     tourId:tourId
     ,videos:videos
 })
@@ -28,20 +28,21 @@ newadModel.save().then(saved=>{
 //     res.json(l)
 }
 exports.updateAd=(req,res)=>{
-    const {courseName,courseDuration, price,thumbnailImage ,description,instructors,categoryId ,topics}=req.body
+    const {tourPlace,tourDuration,price,thumbnailImage ,description,categoryId,images,includes,videos}=req.body
     
-    let courseId=courseName.replace(/\s/g,"-")
+    let tourId=tourPlace.replace(/\s/g,"-")
     
-    console.log(courseId)
-    adModel.findByIdAndUpdate(req.params.courseId,{courseName:courseName,
+    console.log(tourId)
+    adModel.findByIdAndUpdate(req.params.tourId,{
+        tourPlace:tourPlace,
         price :price,
-        courseDuration:courseDuration,
+        tourDuration:tourDuration,
         thumbnailImage:thumbnailImage,
         description:description,
-        instructors:instructors,
+      images:images,includes:includes,
         categoryId:categoryId,
-        topics:topics,
-        courseId:courseId
+        tourId:tourId
+        ,videos:videos
     }).then(foundCourse=>{
         res.json("SuccessFully Updated")
     }).catch(err=>{
@@ -61,14 +62,14 @@ exports.updateAd=(req,res)=>{
         })
     }
     exports.getAdById=(req,res)=>{
-        adModel.findById(req.params.courseId).populate('categoryId').then(Courses=>{
+        adModel.findById(req.params.tourId).populate('categoryId').then(Courses=>{
             res.json(Courses)
         }).catch(err=>{
             res.status(503).json('Something Went Wrong')
         })
     }
     exports.deleteAd=(req,res)=>{
-        adModel.findByIdAndDelete(req.params.courseId).populate('categoryId').then(Courses=>{
+        adModel.findByIdAndDelete(req.params.tourId).populate('categoryId').then(Courses=>{
             res.json("Delete Course")
         }).catch(err=>{
             res.status(503).json('Something Went Wrong')
