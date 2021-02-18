@@ -42,11 +42,11 @@ app.get('/', function(req, res, next) {
 });
 // Auth Routers
 app.use('/',authRouter)
-app.use('/',categoryRouter)
-app.use('/',courseRouter)
-app.use('/',homeBannerRouter)
-app.use('/',couponRouter)
-app.use('/',userRouter)
+// app.use('/',categoryRouter)
+// app.use('/',courseRouter)
+// app.use('/',homeBannerRouter)
+// app.use('/',couponRouter)
+// app.use('/',userRouter)
 
 
 
