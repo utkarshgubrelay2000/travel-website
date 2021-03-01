@@ -9,5 +9,5 @@ router.post('/add-new-ad',verifyAdmin,adController.addNewAd,(err)=>{
     console.log('something went wrong')
 })
 router.put('/update-ad/:tourId',verifyAdmin,adController.updateAd)
-router.delete('/delete-ad/:tourId',verifyAdmin,adController.deleteAd )
-module.exports=router
+router.delete('/delete-ad/:tourId',verifyAdmin,adController.deleteAd)
+module.exports=router;

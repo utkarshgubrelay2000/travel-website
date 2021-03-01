@@ -1,7 +1,10 @@
 const couponModel=require('../model/couponModel')
 
 exports.createCoupon=(req,res)=>{
-    const {couponCode, discount, maxDiscount,minLength}= req.body
+    const {couponCode, 
+        discount, 
+        maxDiscount
+        ,minLength}= req.body
     couponModel.findOne({couponCode:couponCode}).then(foundCoupon=>{
         if(foundCoupon){
             res.status(409).json('ALready exist name conflict')

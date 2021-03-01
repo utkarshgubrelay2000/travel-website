@@ -8,7 +8,8 @@ const Schema= new mongoose.Schema({
          categoryId : {type:mongoose.Schema.Types.ObjectId,ref:'Category'},
          description : {type:String},
          images:[],videos:[],
-         includes:[]
+         includes:[],
+         testimnials:[]
              
     })
 
