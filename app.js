@@ -3,6 +3,7 @@ const app=express()
 const path=require('path')
 const cors = require("cors")
 const mongoose=require('mongoose')
+var serverless=require('serverless-http')
 require("dotenv").config({path:"./config/config.env"});
 const bodyParser = require('body-parser');
 var authRouter = require('./routes/Auth');
@@ -42,3 +43,4 @@ app.listen(process.env.PORT, () => {
 });
 
 module.exports = app;
+module.exports.handler = serverless(app);
