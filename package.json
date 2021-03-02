@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "nodemon app.js",
-    "build": "./node_modules/bin/netlify-lambda"
+    "build": "app.js",
+    "start:lambda":"netlify-lambda serve functions"
+    ,"build:lambda":"netlify-lambda build functions"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -21,6 +23,7 @@
     "jssha": "^3.2.0",
     "md5": "^2.2.1",
     "mongoose": "^5.10.15",
+    "netlify-lambda": "^2.0.3",
     "nodemailer": "^6.4.17",
     "nodemon": "^2.0.6",
     "otp-generator": "^2.0.0",
