@@ -3,13 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon app.js",
-    "build": "app.js",
-    "prod":"npm run build;npm run build:lambda",
-    "start:lambda":"netlify-lambda serve functions"
-    ,"build:lambda":"netlify-lambda build functions"
+    "start": "node app.js",
+  
   },
   "dependencies": {
+    "aws4": "^1.11.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cookie-parser": "~1.4.4",
@@ -23,6 +21,7 @@
     "jsonwebtoken": "^8.5.1",
     "jssha": "^3.2.0",
     "md5": "^2.2.1",
+    "mongodb-client-encryption": "^1.2.1",
     "mongoose": "^5.10.15",
     "netlify-lambda": "^2.0.3",
     "nodemailer": "^6.4.17",

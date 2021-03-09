@@ -142,7 +142,7 @@ exports.Signin = (req, res) => {
 exports.ForgetPassword = (req, res) => {
   var otpGenerator = require('otp-generator')
    let ResetOTP=otpGenerator.generate(6, { upperCase: false, specialChars: false,alphabets:false });
-  //     console.log(ResetOTP);
+       console.log(ResetOTP);
       userModel.findOne({ email: req.body.email }).then((user) => {
         if (!user) {
           return res.status(404).json({ error: "User doesn't exist" });
