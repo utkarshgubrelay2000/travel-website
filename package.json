@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon app.js",
-    "build": "./node_modules/bin/netlify-lambda"
+   
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
