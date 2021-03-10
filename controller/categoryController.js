@@ -1,6 +1,6 @@
 const category = require("../model/categoryModel")
 exports.postCategory=(req,res)=>{
-    const {categoryName}=req.body
+    const {categoryName,thumbImage}=req.body
     console.log('hhh')
     category.findOne({categoryName:categoryName}).then(foundCategory=>{
         if(foundCategory){
@@ -8,7 +8,8 @@ exports.postCategory=(req,res)=>{
         }
         else{
             let newCategory=new category({
-                categoryName:categoryName
+                categoryName:categoryName,
+                thumbImage:thumbImage
             })
             newCategory.save().then(saved=>{
                 res.json({msg: "Category Created"})
@@ -19,10 +20,10 @@ exports.postCategory=(req,res)=>{
     })
 }
 exports.updateCategory=(req,res)=>{
-    const {categoryId,categoryName}=req.body
+    const {categoryId,categoryName,thumbImage}=req.body
     category.findById(categoryId).then(foundCategory=>{
 if(foundCategory){
-    category.findOneAndUpdate({_id:categoryId},{categoryName:categoryName}).then(changedCategory=>{
+    category.findOneAndUpdate({_id:categoryId},{categoryName:categoryName,thumbImage:thumbImage}).then(changedCategory=>{
         res.json({message:'Category Updated'})
     })
 }
