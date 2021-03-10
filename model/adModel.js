@@ -7,9 +7,18 @@ const Schema= new mongoose.Schema({
          thumbnailImage : {type:String},
          categoryId : {type:mongoose.Schema.Types.ObjectId,ref:'Category'},
          description : {type:String},
-         images:[],videos:[],
+         images:[],
+         videos:[],
          includes:[],
-         testimnials:[]
+         keywords:[],
+         testimonials:[
+             {
+            reviewBy:{type:String},
+            rating:{type:Number},
+            reviewContent:{type:String},
+            replies:[{_id:false,reply:{type:String}}]
+            }
+         ]
              
     })
 
