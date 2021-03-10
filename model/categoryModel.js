@@ -4,7 +4,8 @@ const categorySchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  thumbImage:{type:String}
+  thumbImage:{type:String},
+  description:{type:String}
 });
 
 const category = mongoose.model("Category", categorySchema);
