@@ -117,3 +117,20 @@ exports.deleteAd = (req, res) => {
       res.status(503).json("Something Went Wrong");
     });
 };
+exports.getTopRatedAd = (req, res) => {
+  adModel
+    .aggregate([
+      {
+        $project: { avgRating: { $avg: "$testimonial.rating" },
+      data:"$$ROOT"   },
+      },
+      {$sort:{"avgRating":-1}}
+    ])
+
+    .then((topRated) => {
+      res.json(topRated);
+    })
+    .catch((err) => {
+      res.status(404).json(err);
+    });
+};
