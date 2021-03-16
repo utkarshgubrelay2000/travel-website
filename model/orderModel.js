@@ -5,7 +5,7 @@ course:[
     {courseId:{type:mongoose.Schema.Types.ObjectId,ref:'Course'},_id:false}
 ],
 confirmPayment:{type:Boolean},
-userId:{type:mongoose.Schema.Types.ObjectId,ref:'User'}
+userId:{type:mongoose.Schema.Types.ObjectId,ref:'Customer'}
 });
 
 const order = mongoose.model("order", orderSchema);

@@ -96,15 +96,18 @@ exports.getAllAds = (req, res) => {
     });
 };
 exports.getAdById = (req, res) => {
+  try {
+    
+
   adModel
     .findById(req.params.tourId)
-    .populate("categoryId")
+    .populate({path:'testimonial.reviewBy',model:"UserModel"})
     .then((Courses) => {
       res.json(Courses);
     })
-    .catch((err) => {
-      res.status(503).json("Something Went Wrong");
-    });
+    ;} catch (error) {
+    console.log(error)
+  }
 };
 exports.deleteAd = (req, res) => {
   adModel
