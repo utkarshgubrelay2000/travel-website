@@ -15,10 +15,10 @@ const Schema= new mongoose.Schema({
          tripType:[],
          testimonial:[
              {
-            reviewBy:{type:mongoose.Schema.Types.ObjectId,ref:'User'},
+            reviewBy:{type:mongoose.Schema.Types.ObjectId,ref:'Customer'},
             rating:{type:Number,enum:[0,1,2,3,4,5,6,7,8,9],default:0},
             reviewContent:{type:String},
-            replies:[{_id:false,reply:{type:String},replyBy:{type:mongoose.Schema.Types.ObjectId,ref:'User'}}]
+            replies:[{_id:false,reply:{type:String},replyBy:{type:mongoose.Schema.Types.ObjectId,ref:'Customer'}}]
             }
          ]
              

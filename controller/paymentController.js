@@ -1,7 +1,8 @@
 const Course = require("../model/adModel");
 const order = require("../model/orderModel");
 const paymentSuccess = require("../model/paymentSuccess");
-const User = require("../model/userModel");
+const User = require("../model/customerModel");
+
 const Coupon =require('../model/couponModel')
 exports.createOrder = (req, res) => {
   const { course, userId,coupon } = req.body;

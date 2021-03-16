@@ -1,5 +1,6 @@
 const adModel = require("../model/adModel");
-const userModel = require("../model/userModel");
+const userModel = require("../model/customerModel");
+
 
 exports.getMyProfile = (req, res) => {
   userModel

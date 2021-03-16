@@ -10,11 +10,10 @@ exports.getAllTour=(req,res)=>{
         res.status(503).json(err)
     })
 }
-
 exports.getTourBytourId=(req,res)=>{
    const {id}=req.params
 
-    adModel.findOne({_id:id}).populate('categoryId').then(foundCourse=>{
+    adModel.findOne({_id:id}).populate({model:'Customer',path:'testimonial.reviewBy'}).populate('categoryId').then(foundCourse=>{
         if(foundCourse){
             res.json(foundCourse)
         }else{

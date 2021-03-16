@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const userModel = require("../model/userModel");
+const userModel = require("../model/customerModel");
 const md5 = require("md5")
 module.exports=(req,res,next)=>{
 //    console.log(req.headers)
