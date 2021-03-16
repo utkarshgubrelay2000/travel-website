@@ -31,7 +31,7 @@ exports.postTestimonial = (req, res) => {
           .then((foundUser) => {
             let testimonial = {
               reviewContent: req.body.reviewContent,
-              reviewBy: foundUser._id,
+              reviewBy: req.body.userId,
               rating: req.body.rating,
             };
             foundAd.testimonial.push(testimonial);
