@@ -7,15 +7,20 @@ const Schema= new mongoose.Schema({
          thumbnailImage : {type:String},
          categoryId : {type:mongoose.Schema.Types.ObjectId,ref:'Category'},
          description : {type:String},
-         images:[],videos:[],
-         includes:[]
-         ,testimonial:[{
-             _id:false,
-             content:{type:String},
-             user:{type:mongoose.Schema.Types.ObjectId,ref:'User'},
-             rating:{type:Number,
-                enum:[1,2,3,4,5,6,7,8,9,10]}
-         }]
+         images:[],
+         videos:[],
+         includes:[],
+         keywords:[],
+         generalInfo:{type:String},
+         tripType:[],
+         testimonial:[
+             {
+            reviewBy:{type:mongoose.Schema.Types.ObjectId,ref:'User'},
+            rating:{type:Number,enum:[0,1,2,3,4,5,6,7,8,9],default:0},
+            reviewContent:{type:String},
+            replies:[{_id:false,reply:{type:String},replyBy:{type:String}}]
+            }
+         ]
              
     })
 
