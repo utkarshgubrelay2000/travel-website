@@ -14,7 +14,7 @@ exports.addNewAd = (req, res) => {
     keywords,
     generalInfo,
   } = req.body;
-
+//console.log(req.body)
   let tourId = tourPlace.replace(/\s/g, "-");
   let newadModel = new adModel({
     tourPlace: tourPlace,
