@@ -9,6 +9,7 @@ router.get('/checking', verifyAdmin, (req, res) => {
   console.log('error while signup user')
 })
 router.get('/getAllCategories',categoryController.getAllCategories)
+router.get('/getCategoryById/:id',categoryController.getCategoryById)
 
 router.post('/postCategory', verifyAdmin, categoryController.postCategory, err => {
   console.log('error while signup user')

@@ -54,7 +54,7 @@ exports.updateCoupon=(req,res)=>{
     }).then(foundCoupon=>{
         res.json("SuccessFully Updated")
     }).catch(err=>{
-        res.status(503).json('Something Went Wrong')
+        res.status(503).json(err)
     })
     
     

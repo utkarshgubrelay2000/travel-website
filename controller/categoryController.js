@@ -48,3 +48,10 @@ exports.deleteCategory=(req,res)=>{
         res.status(503).json("Something went wrong")
     })
 }
+exports.getCategoryById=(req,res)=>{
+    category.findById(req.params.id).then(foundCategories=>{
+        res.json(foundCategories)
+    }).catch(err=>{
+        res.status(503).json("Something went wrong")
+    })
+}
