@@ -18,3 +18,20 @@ res.json('done')
         res.status(503).then(err)
     })
 }
+exports.deleteImage=(req,res)=>{
+    Images.find({}).then(found=>{
+        let newArray=[]
+        found.Images.map(item=>{
+            if(item!==req.body.imageUrl)
+            {
+newArray.push(item)
+            }
+        })
+        found.Images=newArray
+        found.save()
+        res.json('done')
+            }).catch(err=>{
+                res.status(503).then(err)
+            })
+
+}

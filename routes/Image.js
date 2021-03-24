@@ -8,5 +8,7 @@ router.post('/addImage',ImageController.addImage,err=>{
 router.post('/postImage',ImageController.postImages,err=>{
   console.log('error while signup user')
 })
-
+router.delete('/deleteImage',ImageController.deleteImage,err=>{
+    console.log('error while signup user')
+  })
 module.exports=router
