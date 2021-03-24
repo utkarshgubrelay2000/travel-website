@@ -13,11 +13,19 @@ exports.addImage=(req,res)=>{
 }
 exports.postImages=(req,res)=>{
     Images.find({}).then(found=>{
-        let image={url:req.body.url,rating:req.body.rating,tourPlace:req.body.tourPlace}
-found[0].Images=[...found[0].Images,...images]
-found.save()
+        try {
+            Images.findById(found[0]._id).then(foundImage=>{
+                let image={url:req.body.url,rating:req.body.rating,tourPlace:req.body.tourPlace}
+                foundImage.Images.push(image)
+                foundImage.save()
 res.json('done')
-    }).catch(err=>{
+            })
+          
+        } catch (error) {
+            console.log(error)
+        }
+      
+            }).catch(err=>{
         res.status(503).then(err)
     })
 }
