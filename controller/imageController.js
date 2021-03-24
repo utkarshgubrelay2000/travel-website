@@ -39,8 +39,8 @@ newArray.push(item)
 }
 exports.getAllImage=(req,res)=>{
     Images.find({}).then(found=>{
-        let latestImage=found[0].reverse()
-  res.json(latestImage)
+        //let latestImage=found[0].reverse()
+  res.json(found[0])
     }).catch(err=>{
         res.status(503).json(err)
     })
