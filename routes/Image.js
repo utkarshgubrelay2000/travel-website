@@ -11,4 +11,5 @@ router.post('/postImage',ImageController.postImages,err=>{
 router.delete('/deleteImage',ImageController.deleteImage,err=>{
     console.log('error while signup user')
   })
+  router.get('/get-all-images',ImageController.getAllImage)
 module.exports=router
