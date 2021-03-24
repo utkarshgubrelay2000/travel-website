@@ -4,6 +4,7 @@ const adminSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  blogId:{type:String},
   shortDescription: {
     type: String,
     required: true,

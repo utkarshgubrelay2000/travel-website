@@ -10,7 +10,7 @@ var categoryRouter = require('./routes/category');
 var AdRouter = require('./routes/Ad');
 var couponRouter = require('./routes/coupon');
 var imageRouter = require('./routes/Image');
-//var homeBannerRouter = require('./routes/homeBanner');
+var blogRouter = require('./routes/blog');
 var userRouter = require('./routes/user');
 
 
@@ -46,9 +46,9 @@ app.use('/',authRouter)
  app.use('/',categoryRouter)
  app.use('/',AdRouter)
  app.use('/',imageRouter)
-// app.use('/',homeBannerRouter)
+ app.use('/',blogRouter)
  app.use('/',couponRouter)
-// app.use('/',userRouter)
+ app.use('/',userRouter)
 
 
 

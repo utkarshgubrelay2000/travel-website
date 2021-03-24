@@ -1,3 +1,4 @@
+const customers = require('../model/customerModel')
 const order=require('../model/orderModel')
 
 exports.getOrders=(req,res)=>{
@@ -25,4 +26,11 @@ exports.getOrders=(req,res)=>{
     }).catch(err=>{
         res.status(404).json('my order')
     })
+}
+exports.getAllUser=(req,res)=>{
+  customers.find({}).then(found=>{
+    res.json(found)
+  }).catch(err=>{
+    res.status(404).json(err)
+})
 }
