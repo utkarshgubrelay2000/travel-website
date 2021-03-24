@@ -15,6 +15,7 @@ exports.postImages=(req,res)=>{
     Images.find({}).then(found=>{
         let image={url:req.body.url,rating:req.body.rating,tourPlace:req.body.tourPlace}
 found[0].Images=[...found[0].Images,...images]
+found.save()
 res.json('done')
     }).catch(err=>{
         res.status(503).then(err)
@@ -22,18 +23,27 @@ res.json('done')
 }
 exports.deleteImage=(req,res)=>{
     Images.find({}).then(found=>{
-        let newArray=[]
-        found.Images.map(item=>{
-            if(item.url!==req.body.imageUrl)
-            {
-newArray.push(item)
-            }
-        })
-        found.Images=newArray
-        found.save()
-        res.json('done')
+        try {
+            Images.findById(found[0]._id).then(foundImage=>{
+                let newArray=[]
+                foundImage.Images.map(item=>{
+                    console.log(item.url,req.body.imageUrl,req.body)
+                    if(item.url!==req.body.imageUrl)
+                    {
+                        newArray.push(item)
+                    }
+                })
+                foundImage.Images=newArray
+                foundImage.save()
+res.json('done')
+            })
+          
+        } catch (error) {
+            console.log(error)
+        }
+      
             }).catch(err=>{
-                res.status(503).then(err)
+                res.status(503).json(err)
             })
 
 }
