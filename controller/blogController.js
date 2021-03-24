@@ -1,8 +1,7 @@
 const blog = require("../model/blogModel");
 exports.postBlog = (req, res) => {
   const { content, thumbImage, title, shortDescription } = req.body;
-
-  let blogId = heading.replace(/\s/g, "-");
+  let blogId = title.replace(/\s/g, "-");
   let newBog = new blog({
     title: title,
     content: content,

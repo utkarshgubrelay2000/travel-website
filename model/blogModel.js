@@ -15,7 +15,7 @@ const adminSchema = new mongoose.Schema({
   },
   content: {
     required: true,
-    type: Number,
+    type: String,
   },
  
 
