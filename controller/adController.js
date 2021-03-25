@@ -102,7 +102,7 @@ exports.getAdById = (req, res) => {
 
   adModel
     .findById(req.params.tourId)
-    .populate({path:'testimonial.reviewBy',model:"Customer"})
+    .populate({path:'testimonial.reviewBy',model:"Customer"}).populate('categoryId')
     .then((Courses) => {
       res.json(Courses);
     })
