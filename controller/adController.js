@@ -15,6 +15,7 @@ exports.addNewAd = (req, res) => {
     generalInfo,
   } = req.body;
 //console.log(req.body)
+
   let tourId = tourPlace.replace(/\s/g, "-");
   let newadModel = new adModel({
     tourPlace: tourPlace,
@@ -101,7 +102,7 @@ exports.getAdById = (req, res) => {
 
   adModel
     .findById(req.params.tourId)
-    .populate({path:'testimonial.reviewBy',model:"UserModel"})
+    .populate({path:'testimonial.reviewBy',model:"Customer"})
     .then((Courses) => {
       res.json(Courses);
     })
