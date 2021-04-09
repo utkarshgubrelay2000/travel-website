@@ -1,5 +1,7 @@
 const customers = require('../model/customerModel')
 const order=require('../model/orderModel')
+const blog=require('../model/blogModel')
+const Ad=require('../model/adModel')
 
 exports.getOrders=(req,res)=>{
     order.aggregate([
@@ -32,5 +34,19 @@ exports.getAllUser=(req,res)=>{
     res.json(found)
   }).catch(err=>{
     res.status(404).json(err)
+})
+}
+exports.allData=(req,res)=>{
+customers.find({}).then(foundCus=>{
+  blog.find({}).then(foundBlog=>{
+    Ad.find({}).then(foundAd=>{
+      Ad.find({}).then(foundOrder=>{
+        
+        res.json({ad:foundAd.length,blog:foundBlog.length,order:foundOrder.length,users:foundCus.length})
+      })
+    })
+  })
+}).catch(err=>{
+  res.status(503).json("Something went wrong")
 })
 }
