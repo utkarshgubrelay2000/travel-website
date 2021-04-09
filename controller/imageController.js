@@ -20,7 +20,7 @@ exports.postImages=(req,res)=>{
                 let array=foundImage.Images
                 array.push(image)
                 foundImage.Images=array
-                console.log(foundImage,req.body.url)
+                console.log(req.body.url)
                 foundImage.save()
 res.json('done')
             })
