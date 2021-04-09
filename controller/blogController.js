@@ -20,7 +20,7 @@ exports.postBlog = (req, res) => {
 };
 exports.editBlog = (req, res) => {
   const { content, thumbImage, title, shortDescription } = req.body;
-  let blogId = heading.replace(/\s/g, "-");
+  let blogId = title.replace(/\s/g, "-");
   blog
     .findByIdAndUpdate(req.params.id, {
       title: title,
