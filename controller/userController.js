@@ -101,7 +101,7 @@ exports.postRazorpayOrder = (req, res) => {
                   }
                   //console.log(order,'ordef')
                   let orderArray=foundCus.myOrders
-                  orderArray.push({orderId:order._id})
+                  orderArray.push({orderId:amount._id})
                   foundCus.myOrders=orderArray;
                   foundCus.save()
                   res.json(order);
