@@ -2,7 +2,8 @@ const jwt = require("jsonwebtoken");
 const userModel = require("../model/customerModel");
 const md5 = require("md5")
 module.exports=(req,res,next)=>{
-//    console.log(req.headers)
+
+ console.log(req.headers)
 if(req.headers.authorization){
 let authorization=req.headers.authorization
 
@@ -15,7 +16,7 @@ else{
   let  md5UserId=payload.secretId
   userModel.find({}).then((users) => {
       users.map((user) => {
-         //   console.log(md5UserId,md5(user._id))
+          //  console.log(md5UserId,md5(user._id))
           if (md5(user._id) === md5UserId) {
             req.body.userId = user._id;
               next()

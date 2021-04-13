@@ -14,7 +14,9 @@ router.get('/isCouponApplicable?',userController.isCouponApplicable)
 // router.get('/getMyCart',requireLogin,profileController.getMyCart)
  router.get('/getMyProfile',requireLogin,profileController.getMyProfile)
 // router.get('/getMyCourseById',requireLogin,profileController.getMyCourseById)
+
 router.post('/add-testimonial-to-tour/:tourId',requireLogin,profileController.postTestimonial)
+router.post('/postOrder',requireLogin,userController.postRazorpayOrder)
 
 /// Payment Apis
 router.post('/create-order',requireLogin,paymentController.createOrder)

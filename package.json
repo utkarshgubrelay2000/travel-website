@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "start": "nodemon app.js"
-   
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -24,6 +23,7 @@
     "nodemailer": "^6.4.17",
     "nodemon": "^2.0.6",
     "otp-generator": "^2.0.0",
+    "razorpay": "^2.0.6",
     "serverless-http": "^2.7.0",
     "sha256": "^0.2.0",
     "validate.js": "^0.13.1"
