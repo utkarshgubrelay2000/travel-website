@@ -11,7 +11,7 @@ const Schema= new mongoose.Schema({
          videos:[],
          includes:[],
          keywords:[],
-         generalInfo:{type:String},
+         generalInfo:[],
          tripType:[],
          testimonial:[
              {
