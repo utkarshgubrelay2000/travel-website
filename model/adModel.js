@@ -14,7 +14,7 @@ const Schema= new mongoose.Schema({
          generalInfo:[{
              _id:false,
              time:{type:String},
-             activies:{type:String}
+    activities:{type:String}
          }],
          tripType:[],
          testimonial:[
