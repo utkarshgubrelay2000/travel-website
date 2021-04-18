@@ -12,10 +12,10 @@ const Schema= new mongoose.Schema({
          includes:[],
          keywords:[],
          generalInfo:[{
-            _id:false,
-            time:{type:String},
-            activies:{type:String}
-        }],
+             _id:false,
+             time:{type:String},
+    activities:{type:String}
+         }],
          tripType:[],
          testimonial:[
              {
