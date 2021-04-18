@@ -13,8 +13,9 @@ const Schema= new mongoose.Schema({
          keywords:[],
          generalInfo:[{
              _id:false,
-             time:{type:String},
-    activities:{type:String}
+                      time:{type:String},
+    activities:{type:String},
+    title:{type:String},
          }],
          tripType:[],
          testimonial:[
