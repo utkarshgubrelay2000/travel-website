@@ -13,15 +13,6 @@ exports.getOrders=(req,res)=>{
               as: "userDetails",
             },
           },
-          {
-            $lookup: {
-              from: "courses",
-              localField: "course.courseId",
-              foreignField: "_id",
-              as: "Course",
-            },
-          },
-        {$group:{_id:{'confirmPayment':'$confirmPayment','userId':'$userId'},userOrders:{$push:'$$ROOT'}}},
         {$sort:{_id:-1}}
     ]).then(orders=>{
         res.json(orders)
