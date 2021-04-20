@@ -117,7 +117,7 @@ exports.postRazorpayOrder = (req, res) => {
   });
 };
 exports.getTourCategoryWise=(req,res)=>{
-  adModel.find({categoryId:req.body.id}).then(found=>{
+  adModel.find({categoryId:req.params.id}).then(found=>{
     res.json(found)
   }).catch(err=>{
     res.status(503).json(err)
