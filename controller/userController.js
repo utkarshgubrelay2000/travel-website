@@ -117,8 +117,19 @@ exports.postRazorpayOrder = (req, res) => {
   });
 };
 exports.getTourCategoryWise=(req,res)=>{
-  adModel.find({categoryId:req.params.id}).then(found=>{
-    res.json(found)
+  console.log(req.params)
+  
+  adModel.find({}).then(found=>{
+    let array=[]
+    found.map(item=>{
+      console.log(item.categoryId,req.params.id)
+      if(item.categoryId==req.params.id){
+        console.log(true)
+        array.push(item)
+      }
+    })
+    console.log(array)
+    res.json(array)
   }).catch(err=>{
     res.status(503).json(err)
   })

@@ -10,7 +10,7 @@ exports.getMyProfile = (req, res) => {
       ResetToken: 0,
       expireToken: 0,
       __v: 0,
-    })
+    }).populate('myOrders')
     .then((foundUser) => {
       if (foundUser) {
         res.json(foundUser);
