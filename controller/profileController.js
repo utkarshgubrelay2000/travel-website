@@ -10,7 +10,14 @@ exports.getMyProfile = (req, res) => {
       ResetToken: 0,
       expireToken: 0,
       __v: 0,
-    }).populate('myOrders')
+    }).populate('myOrders.orderId').populate({
+      path: "myOrders.orderId",
+      model: "Order",
+      populate: {
+        path: "tripId",
+        model: "Ad",
+      },
+    })
     .then((foundUser) => {
       if (foundUser) {
         res.json(foundUser);
