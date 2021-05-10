@@ -16,6 +16,7 @@ const Schema= new mongoose.Schema({
                       time:{type:String},
     activities:{type:String},
     title:{type:String},
+    location:location,
          }],
          tripType:[],
          testimonial:[
