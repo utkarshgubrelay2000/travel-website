@@ -12,7 +12,7 @@ exports.addNewAd = (req, res) => {
     includes,
     videos,
     keywords,
-    generalInfo,
+    generalInfo,location
   } = req.body;
 //console.log(req.body)
 
@@ -28,6 +28,7 @@ exports.addNewAd = (req, res) => {
     categoryId: categoryId,
     tourId: tourId,
     videos: videos,
+    location:location,
     keywords: keywords,
     generalInfo: generalInfo,
   });
@@ -54,7 +55,7 @@ exports.updateAd = (req, res) => {
     categoryId,
     images,
     includes,
-    videos,
+    videos,location
   } = req.body;
 
   let tourId = tourPlace.replace(/\s/g, "-");
@@ -71,13 +72,14 @@ exports.updateAd = (req, res) => {
       includes: includes,
       categoryId: categoryId,
       tourId: tourId,
-      videos: videos,
+      location:location,
     })
     .then((foundCourse) => {
       res.json("SuccessFully Updated");
     })
     .catch((err) => {
       res.status(503).json("Something Went Wrong");
+      console.log(err)
     });
 
   //     let String="123 hd 89"

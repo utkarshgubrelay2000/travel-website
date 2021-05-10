@@ -2,6 +2,7 @@ const mongoose=require('mongoose');
 const Schema= new mongoose.Schema({
          tourPlace : {type:String,required:true},
          tourDuration :{type:String},
+         location :{type:String},
          tourId:{type:String},
          price :{type:Number},
          thumbnailImage : {type:String},
