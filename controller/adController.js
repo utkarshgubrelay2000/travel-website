@@ -12,7 +12,7 @@ exports.addNewAd = (req, res) => {
     includes,
     videos,
     keywords,
-    generalInfo,location
+    generalInfo,location,cardImage
   } = req.body;
 //console.log(req.body)
 
@@ -22,6 +22,7 @@ exports.addNewAd = (req, res) => {
     price: price,
     tourDuration: tourDuration,
     thumbnailImage: thumbnailImage,
+    cardImage:cardImage,
     description: description,
     images: images,
     includes: includes,
@@ -55,7 +56,7 @@ exports.updateAd = (req, res) => {
     categoryId,
     images,
     includes,
-    videos,location
+    videos,location,cardImage
   } = req.body;
 
   let tourId = tourPlace.replace(/\s/g, "-");
@@ -73,6 +74,7 @@ exports.updateAd = (req, res) => {
       categoryId: categoryId,
       tourId: tourId,
       location:location,
+      cardImage:cardImage,
     })
     .then((foundCourse) => {
       res.json("SuccessFully Updated");

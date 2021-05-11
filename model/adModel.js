@@ -6,12 +6,14 @@ const Schema= new mongoose.Schema({
          tourId:{type:String},
          price :{type:Number},
          thumbnailImage : {type:String},
+         cardImage : {type:String},
          categoryId : {type:mongoose.Schema.Types.ObjectId,ref:'Category'},
          description : {type:String},
          images:[],
          videos:[],
          includes:[],
          keywords:[],
+         
          generalInfo:[{
              _id:false,
              time:{type:String},
