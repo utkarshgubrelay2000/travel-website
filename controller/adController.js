@@ -14,7 +14,7 @@ exports.addNewAd = (req, res) => {
     keywords,
     generalInfo,location,cardImage
   } = req.body;
-//console.log(req.body)
+console.log(req.body)
 
   let tourId = tourPlace.replace(/\s/g, "-");
   let newadModel = new adModel({
@@ -56,7 +56,7 @@ exports.updateAd = (req, res) => {
     categoryId,
     images,
     includes,
-    videos,location,cardImage
+    videos,location,cardImage,generalInfo
   } = req.body;
 
   let tourId = tourPlace.replace(/\s/g, "-");
@@ -75,6 +75,7 @@ exports.updateAd = (req, res) => {
       tourId: tourId,
       location:location,
       cardImage:cardImage,
+      generalInfo: generalInfo,
     })
     .then((foundCourse) => {
       res.json("SuccessFully Updated");
