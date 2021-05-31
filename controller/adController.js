@@ -11,7 +11,7 @@ exports.addNewAd = (req, res) => {
     images,
     includes,
     videos,
-    keywords,
+    keyword,
     generalInfo,location,cardImage
   } = req.body;
 console.log(req.body)
@@ -30,7 +30,7 @@ console.log(req.body)
     tourId: tourId,
     videos: videos,
     location:location,
-    keywords: keywords,
+    keywords: keyword,
     generalInfo: generalInfo,
   });
   newadModel
