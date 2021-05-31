@@ -106,7 +106,7 @@ exports.getAdById = (req, res) => {
     
 
   adModel
-    .findOne({tourId:req.params.tourId})
+    .findById(req.params.tourId)
     .populate({path:'testimonial.reviewBy',model:"Customer"}).populate('categoryId')
     .then((Courses) => {
       res.json(Courses);
