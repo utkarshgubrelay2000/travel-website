@@ -12,7 +12,11 @@ const Schema= new mongoose.Schema({
          images:[],
          videos:[],
          includes:[],
+         Exclusion:[],
          keywords:[],
+         Accommodation: {type:String},
+         thingsToCarry: {type:String},
+         termsandConditions: {type:String},
          
          generalInfo:[{
              _id:false,

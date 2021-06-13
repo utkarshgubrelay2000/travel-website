@@ -7,9 +7,13 @@ exports.addNewAd = (req, res) => {
     price,
     thumbnailImage,
     description,
+    Accommodation,
+    thingsToCarry,
+    termsandConditions,
     categoryId,
     images,
     includes,
+    Exclusion,
     videos,
     keyword,
     generalInfo,location,cardImage
@@ -32,6 +36,8 @@ console.log(req.body)
     location:location,
     keywords: keyword,
     generalInfo: generalInfo,
+    Accommodation:Accommodation,termsandConditions:termsandConditions,
+    Exclusion:Exclusion,thingsToCarry:thingsToCarry
   });
   newadModel
     .save()
@@ -48,7 +54,9 @@ console.log(req.body)
 };
 exports.updateAd = (req, res) => {
   const {
-    tourPlace,
+    tourPlace, Accommodation,
+    thingsToCarry,
+    termsandConditions,Exclusion,
     tourDuration,
     price,
     thumbnailImage,
@@ -76,6 +84,8 @@ exports.updateAd = (req, res) => {
       location:location,
       cardImage:cardImage,
       generalInfo: generalInfo,
+      Accommodation:Accommodation,termsandConditions:termsandConditions,
+      Exclusion:Exclusion,thingsToCarry:thingsToCarry
     })
     .then((foundCourse) => {
       res.json("SuccessFully Updated");
