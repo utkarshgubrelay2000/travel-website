@@ -186,7 +186,7 @@ exports.getAllTourByCategory=(req,res)=>{
             as: "CategoryWise",
           },
         },
-        {$limit:2}
+        {$limit:3}
   ]).then(allCourse=>{
     let array=[]
     allCourse.map(item=>{
