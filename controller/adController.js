@@ -1,4 +1,5 @@
 const adModel = require("../model/adModel");
+const category = require("../model/categoryModel");
 
 exports.addNewAd = (req, res) => {
   const {
@@ -172,4 +173,29 @@ exports.setTrending=(req,res)=>{
   }).catch(err=>{
     res.statu(503).json('error')
   })
+}
+exports.getAllTourByCategory=(req,res)=>{
+  try {  
+      category.aggregate([
+          {
+          $lookup: {
+            from: "Ad",
+            localField: "_id",
+            foreignField: "categoryId",
+            as: "coursesCategoryWise",
+          },
+        },
+        {$sort:{_id:-1}},
+     
+       { $addFields: {
+          "coursesCategoryWise.categoryName":"$categoryName" }},
+        //{$unwind:"$_id"}
+        {$project:{'coursesCategoryWise.topics.subTopics.videoLink':0}}
+  ]).then(allCourse=>{
+res.json(allCourse)
+  }).catch(err=>{
+      res.status(503).json({message:'Something went wrong',err:err})
+  }) } catch (error) {
+      console.log(error)
+  }
 }
