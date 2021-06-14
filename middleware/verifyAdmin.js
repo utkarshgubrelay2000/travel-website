@@ -9,7 +9,7 @@ let authorization=req.headers.authorization
 jwt.verify(authorization, process.env.JWT_SECRET, (err, payload) => {
     if (err || payload === undefined) {
       console.log(`some error in verifying jwt secret${err}`);
-      res.json({ error: `some error in verifying jwt secret${err}` });
+      res.status(404).json({ error: `some error in verifying jwt secret${err}` });
     }
 else{
   let  md5UserId=payload.secretId
