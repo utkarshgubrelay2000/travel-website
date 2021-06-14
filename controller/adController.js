@@ -17,7 +17,7 @@ exports.addNewAd = (req, res) => {
     Exclusion,
     videos,
     keyword,
-    generalInfo,location,cardImage
+    generalInfo,location,cardImage,dates
   } = req.body;
 console.log(req.body)
 
@@ -38,7 +38,7 @@ console.log(req.body)
     keywords: keyword,
     generalInfo: generalInfo,
     Accommodation:Accommodation,termsandConditions:termsandConditions,
-    Exclusion:Exclusion,thingsToCarry:thingsToCarry
+    Exclusion:Exclusion,thingsToCarry:thingsToCarry,dates:dates
   });
   newadModel
     .save()
@@ -56,7 +56,7 @@ console.log(req.body)
 exports.updateAd = (req, res) => {
   const {
     tourPlace, Accommodation,
-    thingsToCarry,
+    thingsToCarry,dates,
     termsandConditions,Exclusion,
     tourDuration,
     price,
@@ -83,6 +83,7 @@ exports.updateAd = (req, res) => {
       categoryId: categoryId,
       tourId: tourId,
       location:location,
+      dates:dates,
       cardImage:cardImage,
       generalInfo: generalInfo,
       Accommodation:Accommodation,termsandConditions:termsandConditions,

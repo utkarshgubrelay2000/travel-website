@@ -14,6 +14,7 @@ const Schema= new mongoose.Schema({
          includes:[],
          Exclusion:[],
          keywords:[],
+         dates:[],
          Accommodation: {type:String},
          thingsToCarry: {type:String},
          termsandConditions: {type:String},
