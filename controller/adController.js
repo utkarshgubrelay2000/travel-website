@@ -180,20 +180,21 @@ exports.getAllTourByCategory=(req,res)=>{
       category.aggregate([
           {
           $lookup: {
-            from: "Ad",
+            from: "ads",
             localField: "_id",
             foreignField: "categoryId",
-            as: "coursesCategoryWise",
+            as: "CategoryWise",
           },
         },
-        {$sort:{_id:-1}},
-     
-       { $addFields: {
-          "coursesCategoryWise.categoryName":"$categoryName" }},
-        //{$unwind:"$_id"}
-        {$project:{'coursesCategoryWise.topics.subTopics.videoLink':0}}
+        {$limit:2}
   ]).then(allCourse=>{
-res.json(allCourse)
+    let array=[]
+    allCourse.map(item=>{
+      if(item.CategoryWise.length!==0){
+array.push(item)
+      }
+    })
+res.json(array)
   }).catch(err=>{
       res.status(503).json({message:'Something went wrong',err:err})
   }) } catch (error) {
