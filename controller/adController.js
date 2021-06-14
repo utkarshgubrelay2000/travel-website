@@ -153,3 +153,23 @@ exports.getTopRatedAd = (req, res) => {
       res.status(404).json(err);
     });
 };
+exports.getAllTrending=(req,res)=>{
+  adModel
+    .find({trending:true})
+    .populate("categoryId")
+    .sort({ _id: -1 })
+    .then((Courses) => {
+      res.json(Courses);
+    })
+    .catch((err) => {
+      res.status(503).json("Something Went Wrong");
+    });
+}
+exports.setTrending=(req,res)=>{
+  adModel.findById(req.params.id).then(found=>{
+    found.trending=req.body.trending
+    found.save()
+  }).catch(err=>{
+    res.statu(503).json('error')
+  })
+}

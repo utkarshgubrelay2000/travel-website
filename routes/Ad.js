@@ -6,6 +6,8 @@ const verifyAdmin = require('../middleware/verifyAdmin');
 router.get('/get-all-ad',adController.getAllAds)
 router.get('/get-top-rated-ads',adController.getTopRatedAd)
 router.get('/adById/:tourId',adController.getAdById)
+router.get('/trendingTours',adController.getAllTrending)
+router.put('/setTrending/:id',adController.setTrending)
 router.post('/add-new-ad',verifyAdmin,adController.addNewAd,(err)=>{
     console.log('something went wrong')
 })

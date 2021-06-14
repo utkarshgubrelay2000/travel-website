@@ -17,6 +17,7 @@ const Schema= new mongoose.Schema({
          Accommodation: {type:String},
          thingsToCarry: {type:String},
          termsandConditions: {type:String},
+         trending:{type:Boolean},
          
          generalInfo:[{
              _id:false,
